@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apartamentos de São Paulo</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      color: #333;
+    }
+    header {
+      background: #6b4aa5;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      padding: 20px;
+      max-width: 600px;
+      margin: auto;
+    }
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+    ul {
+      padding-left: 20px;
+    }
+    form {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+    }
+    label {
+      margin-top: 10px;
+    }
+    input, select, textarea {
+      padding: 10px;
+      margin-top: 5px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #6b4aa5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #593b88;
+    }
+    .preco {
+      font-size: 20px;
+      font-weight: bold;
+      margin-top: 10px;
+      color: #6b4aa5;
+      text-align: center;
+    }
+    .chamada {
+      font-size: 16px;
+      font-weight: 500;
+      text-align: center;
+      margin-top: 10px;
+      color: #444;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Apartamentos de São Paulo</h1>
+  </header>
+  <section>
+    <img src="/mnt/data/IMG-20250305-WA0030.jpg" alt="Apartamentos de São Paulo">
+    <p class="preco">A partir de R$220 mil</p>
+    <p class="chamada">Unidades com entrada facilitada e parcelas que cabem no seu bolso!</p>
+    <ul>
+      <li>1,2 e 3 Dormitórios</li>
+      <li>Com ou sem Vaga de garagem, com e sem sacada</li>
+      <li>Em toda região de São Paulo</li>
+      <li>Entrada facilitada</li>
+      <li>Use seu FGTS</li>
+      <li>Apartamento para moradia e investimento\</li>
+    </ul>
+    <h2>Solicite mais informações</h2>
+    <form id="leadForm">
+      <label>Nome completo:</label>
+      <input type="text" name="nome" required>
+      
+      <label>WhatsApp:</label>
+      <input type="tel" name="whatsapp" required>
+
+      <label>Dormitórios desejados:</label>
+      <select name="dorms">
+        <option value="1">1 dormitório</option>
+        <option value="2">2 dormitórios</option>
+        <option value="3">3 dormitórios</option>
+      </select>
+
+      <label>Usa FGTS?</label>
+      <select name="fgts">
+        <option value="Sim">Sim</option>
+        <option value="Não">Não</option>
+      </select>
+
+      <label>Renda familiar:</label>
+      <input type="text" name="renda" value="R$ 0 " required>
+
+      <label>Mensagem opcional:</label>
+      <textarea name="mensagem"></textarea>
+
+      <button type="submit">Quero mais informações via WhatsApp</button>
+    </form>
+  </section>
+
+  <script>
+    document.getElementById('leadForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const nome = this.nome.value;
+      const whatsapp = this.whatsapp.value;
+      const dorms = this.dorms.value;
+      const fgts = this.fgts.value;
+      const renda = this.renda.value;
+      const mensagem = this.mensagem.value;
+
+      const texto = `Novo lead de apartamento de são Paulo:%0A%0ANome: ${nome}%0AWhatsApp: ${whatsapp}%0ADormitórios: ${dorms}%0AFGTS: ${fgts}%0ARenda: ${renda}%0AMensagem: ${mensagem}`;
+      const link = `https://wa.me/5511959486981?text=${texto}`;
+      window.open(link, '_blank');
+    });
+  </script>
+</body>
+</html>
